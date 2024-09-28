@@ -1,11 +1,20 @@
 package com.company;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alien {
 
+        @Value("21")
         private int age;
      //   private Laptop lap =new Laptop(); // As we are using spring we want to inject
   //  private Laptop lap; //Injecting using bean reference in property
-    private Computer com;
+    @Autowired
+    @Qualifier("laptop")
+    private Computer com;  //field Injection
 
     public Alien(){
       System.out.println("Alien Constructor called Object created"); //now it won't called the default constructor

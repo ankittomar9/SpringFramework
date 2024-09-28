@@ -6,11 +6,14 @@
 
 <!--    Default scope is singleton only 1 object throughout session -->
 <!--    prototype scope is allowing dedicated object creation means we can create two or more object-->
-    <bean id="alien1"  class="com.company.Alien" scope="prototype">
+   <!-- <bean id="alien1"  class="com.company.Alien" scope="prototype">-->
+    <bean id="alien1"  class="com.company.Alien" >
+        <property name="age" value="25"> </property>
+        <property name="lap" ref="lap1"></property>
     </bean>
 
 
-    <bean id="lap"  class="com.company.Laptop">
+    <bean id="lap1"  class="com.company.Laptop">
     </bean>
 
 </beans>

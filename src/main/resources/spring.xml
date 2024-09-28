@@ -7,13 +7,41 @@
 <!--    Default scope is singleton only 1 object throughout session -->
 <!--    prototype scope is allowing dedicated object creation means we can create two or more object-->
    <!-- <bean id="alien1"  class="com.company.Alien" scope="prototype">-->
-    <bean id="alien1"  class="com.company.Alien" >
+
+    <bean id="alien1"  class="com.company.Alien" autowire="byType" > <!--autowire byName-->
+
         <property name="age" value="25"> </property>
-        <property name="lap" ref="lap1"></property>
+        <property name="com" >
+            <bean id="com1"  class="com.company.Laptop" primary="true">
+            </bean>
+        </property>
+
+
+        <!--<property name="com" ref="com2"/>-->
+      <!--  <property name="com" ref="com1"/>  it prefers autowiring but if explicitly mentioned you can use it-->
+
+<!--            solution 1-->
+      <!--  <constructor-arg type="com.company.Laptop" ref="lap1"/>
+        <constructor-arg type="int" value="24"/>
+        -->
+        <!--solution 2  Ideal solution -->
+      <!--  <constructor-arg index="1" ref="lap1"/>
+        <constructor-arg index="0" value="24"/>
+-->
+        <!--solution 3-->
+       <!-- <constructor-arg name="lap" ref="lap1"/>
+        <constructor-arg name="age" value="24"/>-->
+
+
     </bean>
 
 
-    <bean id="lap1"  class="com.company.Laptop">
+   <!-- <bean id="com1"  class="com.company.Laptop" primary="true">
     </bean>
+-->
+  <!--  <bean id="com2"  class="com.company.Desktop " lazy-init="true">
+    </bean>
+-->
+
 
 </beans>

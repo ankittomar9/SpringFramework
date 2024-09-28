@@ -14,7 +14,7 @@ public class App
 
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-        Alien obj1=(Alien)context.getBean("alien1");
+        Alien obj1=context.getBean("alien1" ,Alien.class);
      //   obj1.setAge(21);
         System.out.println(obj1.getAge());
         obj1.code();
@@ -25,5 +25,7 @@ public class App
         obj2.code();
 */
 
+       //     Desktop obj2=(Desktop)context.getBean("com2");
+       // Desktop desktop=context.getBean(Desktop.class);
     }
 }
